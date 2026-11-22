@@ -1,0 +1,97 @@
+{
+  "feature": "autenticacao",
+  "timestamp": "2026-11-22T18:31:35.959Z",
+  "gitRev": "aceb5ca",
+  "command": "node tools/run-gradle-tests.mjs",
+  "reporter": "jest-json",
+  "exitCode": 0,
+  "testsParsed": 62,
+  "results": {
+    "AC-023": {
+      "status": "pass",
+      "testName": "@spec:AC-023 Login correto devolve um token de acesso de 1 hora",
+      "method": "jest-json"
+    },
+    "AC-024": {
+      "status": "pass",
+      "testName": "@spec:AC-024 Usuário ou senha errados são recusados sem dar pistas",
+      "method": "jest-json"
+    },
+    "AC-025": {
+      "status": "pass",
+      "testName": "@spec:AC-025 Sem token, a API recusa",
+      "method": "jest-json"
+    },
+    "AC-026": {
+      "status": "pass",
+      "testName": "@spec:AC-026 Token vencido ou adulterado é recusado",
+      "method": "jest-json"
+    },
+    "AC-027": {
+      "status": "pass",
+      "testName": "@spec:AC-027 Login e saúde continuam abertos",
+      "method": "jest-json"
+    },
+    "AC-038": {
+      "status": "pass",
+      "testName": "@spec:AC-038 Sem chave de assinatura configurada, a aplicação não inicia",
+      "method": "jest-json"
+    },
+    "AC-028": {
+      "status": "pass",
+      "testName": "@spec:AC-028 Recepção cria a conta e recebe a senha provisória uma única vez",
+      "method": "jest-json"
+    },
+    "AC-029": {
+      "status": "pass",
+      "testName": "@spec:AC-029 Paciente que já tem conta não ganha uma segunda",
+      "method": "jest-json"
+    },
+    "AC-030": {
+      "status": "pass",
+      "testName": "@spec:AC-030 Recepção gera nova senha provisória e a antiga deixa de valer",
+      "method": "jest-json"
+    },
+    "AC-039": {
+      "status": "pass",
+      "testName": "@spec:AC-039 Senhas nunca são guardadas nem devolvidas em texto",
+      "method": "jest-json"
+    },
+    "AC-031": {
+      "status": "pass",
+      "testName": "@spec:AC-031 Recepção continua fazendo tudo",
+      "method": "jest-json"
+    },
+    "AC-032": {
+      "status": "pass",
+      "testName": "@spec:AC-032 Paciente é barrado onde só a recepção atua",
+      "method": "jest-json"
+    },
+    "AC-033": {
+      "status": "pass",
+      "testName": "@spec:AC-033 Paciente vê só as próprias consultas",
+      "method": "jest-json"
+    },
+    "AC-034": {
+      "status": "pass",
+      "testName": "@spec:AC-034 Paciente cancela a própria consulta, e só a própria",
+      "method": "jest-json"
+    },
+    "AC-035": {
+      "status": "pass",
+      "testName": "@spec:AC-035 Usuário troca a própria senha informando a atual",
+      "method": "jest-json"
+    },
+    "AC-036": {
+      "status": "pass",
+      "testName": "@spec:AC-036 Troca com senha atual errada ou senha nova fraca é recusada",
+      "method": "jest-json"
+    },
+    "AC-037": {
+      "status": "pass",
+      "testName": "@spec:AC-037 A conta inicial da recepção é criada na primeira subida e não se duplica",
+      "method": "jest-json"
+    }
+  },
+  "principles": {}
+}

@@ -1,10 +1,14 @@
 package br.com.agendamento.consultas.consulta;
 
+import br.com.agendamento.consultas.erro.RegraDeNegocioException;
 import br.com.agendamento.consultas.prioridade.Prioridade;
+import br.com.agendamento.consultas.seguranca.UsuarioLogado;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.time.LocalDateTime;
+import java.util.List;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -47,9 +51,26 @@ public class ConsultaController {
         return ResponseEntity.created(URI.create("/consultas/" + criada.getId())).body(ConsultaResponse.de(criada));
     }
 
+    /** Fase 2: o paciente logado lista só as próprias consultas. */
+    @GetMapping("/minhas")
+    public List<ConsultaResponse> minhas() {
+        return facade.listarDoPaciente(UsuarioLogado.atual().pacienteId()).stream()
+                .map(ConsultaResponse::de).toList();
+    }
+
     @GetMapping("/{id}")
     public ConsultaResponse buscar(@PathVariable Long id) {
-        return ConsultaResponse.de(facade.buscar(id));
+        Consulta consulta = facade.buscar(id);
+        exigirRecepcaoOuDono(consulta);
+        return ConsultaResponse.de(consulta);
+    }
+
+    /** Fase 2: o paciente só mexe na própria consulta; a recepção, em qualquer uma. */
+    private static void exigirRecepcaoOuDono(Consulta consulta) {
+        UsuarioLogado logado = UsuarioLogado.atual();
+        if (!logado.ehRecepcao() && !consulta.getPacienteId().equals(logado.pacienteId())) {
+            throw new RegraDeNegocioException(HttpStatus.FORBIDDEN, "sem permissão para esta operação");
+        }
     }
 
     @PatchMapping("/{id}/confirmar")
@@ -59,6 +80,7 @@ public class ConsultaController {
 
     @PatchMapping("/{id}/cancelar")
     public ConsultaResponse cancelar(@PathVariable Long id) {
+        exigirRecepcaoOuDono(facade.buscar(id));
         return ConsultaResponse.de(facade.cancelar(id));
     }
 

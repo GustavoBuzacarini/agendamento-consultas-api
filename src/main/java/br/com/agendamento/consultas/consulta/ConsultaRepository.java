@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
 
+    java.util.List<Consulta> findByPacienteIdOrderByInicio(Long pacienteId);
+
     @Query("""
             select count(c) > 0 from Consulta c
             where c.profissionalId = :profissionalId and c.status in :ativas

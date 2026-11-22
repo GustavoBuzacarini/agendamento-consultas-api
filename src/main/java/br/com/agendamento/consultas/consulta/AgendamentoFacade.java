@@ -54,6 +54,10 @@ public class AgendamentoFacade {
         return consultas.buscar(id);
     }
 
+    public java.util.List<Consulta> listarDoPaciente(Long pacienteId) {
+        return consultas.listarDoPaciente(pacienteId);
+    }
+
     public Consulta confirmar(Long id) {
         return consultas.confirmar(id);
     }

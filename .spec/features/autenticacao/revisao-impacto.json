@@ -1,0 +1,16 @@
+{
+  "summary": "Li a constituição (P-001, P-002) e os documentos da feature agendamento-consultas (PRD, ADR, TDD, spec). Conflito 1: a spec anterior define ASM-007 'Sem autenticação no MVP' e lista 'Login' em 'Fora de escopo'; o PRD anterior registra 'Sem login (Recomendado)'; esta feature fecha todos os endereços com token. Conflito 2: Q-003 anterior ('Só a recepção cancela', válida para a fase 1) é revista na fase 2, em que o paciente cancela a própria consulta (AC-034). Impacto nos arquivos: ConsultaController, AgendamentoService e ConsultaRepository ganham GET /consultas/minhas e checagem de dono, sem mudar o comportamento dos 22 critérios anteriores, e os testes anteriores passam a enviar token da recepção. P-002 é respeitada: JWT_SECRET e a senha inicial só por variável de ambiente.",
+  "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+  "conflicts": [
+    {
+      "id": "asm-007-api-aberta",
+      "summary": "A spec anterior assume API sem autenticação (ASM-007) e deixa login fora de escopo; esta feature exige token em todos os endereços, exceto login e saúde.",
+      "rule": ".spec/features/agendamento-consultas/spec.md#suposições"
+    },
+    {
+      "id": "q-003-cancelamento-so-recepcao",
+      "summary": "A resposta à Q-003 anterior limita o cancelamento à recepção no MVP; a fase 2 deixa o paciente cancelar a própria consulta.",
+      "rule": ".spec/features/agendamento-consultas/spec.md#perguntas-em-aberto"
+    }
+  ]
+}

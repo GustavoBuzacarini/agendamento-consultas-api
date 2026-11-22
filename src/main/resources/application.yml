@@ -23,6 +23,19 @@ management:
       exposure:
         include: health
 
+# Token de acesso (fase 2). O segredo vem só do ambiente: sem ele (ou com menos de 32 caracteres),
+# a aplicação se recusa a iniciar.
+seguranca:
+  jwt:
+    segredo: ${JWT_SECRET:}
+    validade: 1h
+
+# Conta inicial da recepção: criada na primeira subida, só se ainda não existir conta de recepção.
+recepcao:
+  inicial:
+    usuario: ${RECEPCAO_USUARIO_INICIAL:}
+    senha: ${RECEPCAO_SENHA_INICIAL:}
+
 # Serviço de consulta de CEP (US-006)
 cep:
   viacep:

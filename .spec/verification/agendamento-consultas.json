@@ -1,11 +1,11 @@
 {
   "feature": "agendamento-consultas",
-  "timestamp": "2026-11-22T17:21:08.186Z",
-  "gitRev": null,
+  "timestamp": "2026-11-22T18:32:18.009Z",
+  "gitRev": "aceb5ca",
   "command": "node tools/run-gradle-tests.mjs",
   "reporter": "jest-json",
   "exitCode": 0,
-  "testsParsed": 39,
+  "testsParsed": 62,
   "results": {
     "AC-001": {
       "status": "pass",

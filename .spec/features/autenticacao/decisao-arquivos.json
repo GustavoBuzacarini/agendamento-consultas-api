@@ -1,0 +1,6 @@
+{
+  "conflictId": "impacto:agendamento-consultas",
+  "choice": "prosseguir",
+  "answer": "Prosseguir (Recomendado)",
+  "source": "AskUserQuestion, pergunta sobre alterar ConsultaController, AgendamentoService e ConsultaRepository (T-014), 2026-11-22"
+}

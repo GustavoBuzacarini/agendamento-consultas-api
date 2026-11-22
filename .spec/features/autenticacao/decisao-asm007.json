@@ -1,0 +1,6 @@
+{
+  "conflictId": "asm-007-api-aberta",
+  "choice": "prosseguir",
+  "answer": "Prosseguir (Recomendado)",
+  "source": "AskUserQuestion, pergunta sobre o conflito com ASM-007, 2026-11-22"
+}

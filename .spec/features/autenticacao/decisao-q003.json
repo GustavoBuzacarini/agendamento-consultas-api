@@ -1,0 +1,6 @@
+{
+  "conflictId": "q-003-cancelamento-so-recepcao",
+  "choice": "prosseguir",
+  "answer": "Perfis: Recepção e Paciente (Recomendado) - opção cuja descrição diz que o Paciente só vê e cancela as próprias consultas",
+  "source": "AskUserQuestion, pergunta 'Quais perfis de acesso o sistema terá?', 2026-11-22"
+}

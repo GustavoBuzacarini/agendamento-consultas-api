@@ -315,6 +315,240 @@
       "primeiraVez": "2026-11-22T17:16:31.809Z",
       "ultimaVez": "2026-11-22T17:16:39.898Z",
       "gitRev": null
+    },
+    "DECISAO_CLIENTE_PENDENTE::autenticacao::.spec\\features\\autenticacao\\governance.json": {
+      "codigo": "DECISAO_CLIENTE_PENDENTE",
+      "feature": "autenticacao",
+      "ref": ".spec\\features\\autenticacao\\governance.json",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T18:25:07.318Z",
+      "ultimaVez": "2026-11-22T18:25:07.881Z",
+      "gitRev": "aceb5ca"
+    },
+    "DECISAO_CLIENTE_PENDENTE::autenticacao::ASM-007": {
+      "codigo": "DECISAO_CLIENTE_PENDENTE",
+      "feature": "autenticacao",
+      "ref": "ASM-007",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T18:25:07.319Z",
+      "ultimaVez": "2026-11-22T18:25:07.883Z",
+      "gitRev": "aceb5ca"
+    },
+    "DECISAO_CLIENTE_PENDENTE::autenticacao::Q-003": {
+      "codigo": "DECISAO_CLIENTE_PENDENTE",
+      "feature": "autenticacao",
+      "ref": "Q-003",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T18:25:07.319Z",
+      "ultimaVez": "2026-11-22T18:25:07.883Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-011": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-011",
+      "ocorrencias": 24,
+      "primeiraVez": "2026-11-22T18:25:07.319Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-012": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-012",
+      "ocorrencias": 28,
+      "primeiraVez": "2026-11-22T18:25:07.319Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-013": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-013",
+      "ocorrencias": 16,
+      "primeiraVez": "2026-11-22T18:25:07.319Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-014": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-014",
+      "ocorrencias": 8,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-015": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-015",
+      "ocorrencias": 12,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "ARQUIVO_INEXISTENTE::autenticacao::T-016": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "autenticacao",
+      "ref": "T-016",
+      "ocorrencias": 12,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-023": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-023",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-024": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-024",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-025": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-025",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-026": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-026",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-027": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-027",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-038": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-038",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-028": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-028",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-029": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-029",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-030": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-030",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-039": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-039",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-031": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-031",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-032": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-032",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-033": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-033",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-034": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-034",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-035": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-035",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-036": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-036",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
+    },
+    "AC_SEM_TESTE::autenticacao::AC-037": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "autenticacao",
+      "ref": "AC-037",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T18:25:07.320Z",
+      "ultimaVez": "2026-11-22T18:25:14.758Z",
+      "gitRev": "aceb5ca"
     }
   }
 }

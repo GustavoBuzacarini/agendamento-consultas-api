@@ -32,6 +32,11 @@ public class AgendamentoService {
                 .orElseThrow(() -> new RegraDeNegocioException(HttpStatus.NOT_FOUND, "consulta não encontrada"));
     }
 
+    @Transactional(readOnly = true)
+    public java.util.List<Consulta> listarDoPaciente(Long pacienteId) {
+        return repository.findByPacienteIdOrderByInicio(pacienteId);
+    }
+
     @Transactional
     public Consulta confirmar(Long id) {
         Consulta consulta = buscar(id);

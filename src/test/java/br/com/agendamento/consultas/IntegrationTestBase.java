@@ -11,6 +11,9 @@ import br.com.agendamento.consultas.paciente.PacienteRepository;
 import br.com.agendamento.consultas.profissional.Expediente;
 import br.com.agendamento.consultas.profissional.Profissional;
 import br.com.agendamento.consultas.profissional.ProfissionalRepository;
+import br.com.agendamento.consultas.seguranca.JwtService;
+import br.com.agendamento.consultas.seguranca.Perfil;
+import br.com.agendamento.consultas.seguranca.TokenPadraoDeTeste;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,22 +25,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
 /**
  * Base dos testes de integração: um PostgreSQL real (Testcontainers) compartilhado por todas as
- * classes de teste, tabelas limpas antes de cada teste e "agora" congelado (RelogioDeTeste).
+ * classes de teste, tabelas limpas antes de cada teste, "agora" congelado (RelogioDeTeste) e API
+ * protegida. O {@code mvc} já envia o token da recepção; o {@code mvcAnonimo} não envia nada.
  * Exige o Docker em execução.
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-@Import({RelogioDeTeste.class, CepClientDeTeste.class})
+@Import({RelogioDeTeste.class, CepClientDeTeste.class, TokenPadraoDeTeste.class})
 public abstract class IntegrationTestBase {
 
     /** "Agora" nos testes: terça-feira, 10:00. */
@@ -46,6 +55,9 @@ public abstract class IntegrationTestBase {
     protected static final LocalDate QUARTA = LocalDate.of(2026, 12, 2);
     protected static final LocalDate QUINTA = LocalDate.of(2026, 12, 3);
     protected static final LocalDate SABADO = LocalDate.of(2026, 12, 5);
+
+    /** Segredo só dos testes (a aplicação real lê JWT_SECRET do ambiente). */
+    protected static final String SEGREDO_DE_TESTE = "segredo-apenas-para-testes-com-mais-de-32-caracteres";
 
     private static final PostgreSQLContainer POSTGRES = new PostgreSQLContainer("postgres:17");
     private static final AtomicLong CPF_SEQUENCIAL = new AtomicLong(10_000_000_000L);
@@ -59,13 +71,24 @@ public abstract class IntegrationTestBase {
         registro.add("spring.datasource.url", POSTGRES::getJdbcUrl);
         registro.add("spring.datasource.username", POSTGRES::getUsername);
         registro.add("spring.datasource.password", POSTGRES::getPassword);
+        registro.add("seguranca.jwt.segredo", () -> SEGREDO_DE_TESTE);
     }
 
+    /** MockMvc que envia o token da recepção por padrão. */
     @Autowired
     protected MockMvc mvc;
 
+    /** MockMvc que não envia token algum; cada teste manda o seu, se quiser. */
+    protected MockMvc mvcAnonimo;
+
     @Autowired
-    private JdbcTemplate jdbc;
+    protected JwtService jwt;
+
+    @Autowired
+    protected JdbcTemplate jdbc;
+
+    @Autowired
+    private WebApplicationContext contexto;
 
     @Autowired
     private PacienteRepository pacientes;
@@ -77,8 +100,26 @@ public abstract class IntegrationTestBase {
     private MotivoRepository motivos;
 
     @BeforeEach
-    void limparTabelas() {
-        jdbc.execute("TRUNCATE consulta, paciente, profissional, motivo_atendimento RESTART IDENTITY CASCADE");
+    void prepararCadaTeste() {
+        jdbc.execute("TRUNCATE usuario, consulta, paciente, profissional, motivo_atendimento RESTART IDENTITY CASCADE");
+        mvcAnonimo = MockMvcBuilders.webAppContextSetup(contexto)
+                .apply(SecurityMockMvcConfigurers.springSecurity())
+                .build();
+    }
+
+    // ---- tokens ----
+
+    protected String tokenDaRecepcao() {
+        return jwt.emitir("recepcao-de-teste", Perfil.RECEPCAO, null).valor();
+    }
+
+    protected String tokenDoPaciente(Long pacienteId) {
+        return jwt.emitir("paciente-" + pacienteId, Perfil.PACIENTE, pacienteId).valor();
+    }
+
+    /** Acrescenta o cabeçalho Authorization: Bearer ... à requisição. */
+    protected static MockHttpServletRequestBuilder comToken(MockHttpServletRequestBuilder requisicao, String token) {
+        return requisicao.header(HttpHeaders.AUTHORIZATION, "Bearer " + token);
     }
 
     // ---- dados de apoio, gravados direto no banco ----
@@ -105,7 +146,14 @@ public abstract class IntegrationTestBase {
         return motivos.save(new MotivoAtendimento(descricao, gravidade)).getId();
     }
 
-    /** Agenda pela API; devolve o resultado para o teste conferir. */
+    /** Faz o login pela API, sem token (como um usuário que ainda não entrou). */
+    protected ResultActions login(String usuario, String credencial) throws Exception {
+        String corpo = """
+                {"usuario":"%s","senha":"%s"}""".formatted(usuario, credencial);
+        return mvcAnonimo.perform(post("/auth/login").contentType(MediaType.APPLICATION_JSON).content(corpo));
+    }
+
+    /** Agenda pela API, com o token da recepção; devolve o resultado para o teste conferir. */
     protected ResultActions agendar(Long pacienteId, Long profissionalId, Long motivoId, LocalDate dia, int hora,
                                     int minuto) throws Exception {
         String corpo = """

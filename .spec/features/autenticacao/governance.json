@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "large": true,
+  "documentationContract": "onp-docs-v1",
+  "domains": [],
+  "clientRequest": "Fase 2: login (Recomendado). Perfis: Recepção e Paciente (Recomendado). Conta do paciente: Recepção cria a conta (Recomendado). Token: Só token de acesso, 1 hora (Recomendado). Primeira conta da recepção: Variáveis de ambiente (Recomendado). Origem: respostas do cliente às perguntas nativas de 2026-11-22; a Fase 2 vem da seção 'Fase 2' do README e do pedido anterior de login com Spring Security/JWT e cancelamento pelo próprio paciente.",
+  "review": {
+    "summary": "Li a constituição (P-001, P-002) e os documentos da feature agendamento-consultas (PRD, ADR, TDD, spec). Conflito 1: a spec anterior define ASM-007 'Sem autenticação no MVP' e lista 'Login' em 'Fora de escopo'; o PRD anterior registra 'Sem login (Recomendado)'; esta feature fecha todos os endereços com token. Conflito 2: Q-003 anterior ('Só a recepção cancela', válida para a fase 1) é revista na fase 2, em que o paciente cancela a própria consulta (AC-034). Impacto nos arquivos: ConsultaController, AgendamentoService e ConsultaRepository ganham GET /consultas/minhas e checagem de dono, sem mudar o comportamento dos 22 critérios anteriores, e os testes anteriores passam a enviar token da recepção. P-002 é respeitada: JWT_SECRET e a senha inicial só por variável de ambiente.",
+    "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+    "conflicts": [
+      {
+        "id": "impacto:agendamento-consultas",
+        "automatic": true,
+        "feature": "agendamento-consultas",
+        "summary": "A mudança interfere no domínio da feature agendamento-consultas.",
+        "files": [
+          "build.gradle",
+          "src/main/java/br/com/agendamento/consultas/consulta/AgendamentoFacade.java",
+          "src/main/java/br/com/agendamento/consultas/consulta/AgendamentoService.java",
+          "src/main/java/br/com/agendamento/consultas/consulta/ConsultaController.java",
+          "src/main/java/br/com/agendamento/consultas/consulta/ConsultaRepository.java",
+          "src/main/resources/application.yml",
+          "src/test/java/br/com/agendamento/consultas/IntegrationTestBase.java"
+        ],
+        "domains": [],
+        "rule": ".spec/features/agendamento-consultas/prd.md"
+      },
+      {
+        "id": "asm-007-api-aberta",
+        "summary": "A spec anterior assume API sem autenticação (ASM-007) e deixa login fora de escopo; esta feature exige token em todos os endereços, exceto login e saúde.",
+        "rule": ".spec/features/agendamento-consultas/spec.md#suposições"
+      },
+      {
+        "id": "q-003-cancelamento-so-recepcao",
+        "summary": "A resposta à Q-003 anterior limita o cancelamento à recepção no MVP; a fase 2 deixa o paciente cancelar a própria consulta.",
+        "rule": ".spec/features/agendamento-consultas/spec.md#perguntas-em-aberto"
+      }
+    ],
+    "fingerprint": "5d992b4988505569b1c8ade051cfa43b81a1ea5c6d023a9f68a5a6f73a3d939d",
+    "ownFingerprint": "475cb35e35b9cfbc3b31dc5682f96c1e0acbee0d4ed218d1b8802f22830f438b",
+    "reviewedAt": "2026-11-22T18:33:38.053Z",
+    "documents": [
+      ".spec/features/agendamento-consultas/prd.md",
+      ".spec/features/agendamento-consultas/adr.md",
+      ".spec/features/agendamento-consultas/design.md",
+      ".spec/features/agendamento-consultas/spec.md",
+      ".spec/features/agendamento-consultas/tasks.md",
+      ".spec/features/agendamento-consultas/research.md",
+      ".spec/features/autenticacao/prd.md",
+      ".spec/features/autenticacao/adr.md",
+      ".spec/features/autenticacao/design.md",
+      ".spec/features/autenticacao/spec.md",
+      ".spec/features/autenticacao/tasks.md",
+      ".spec/features/autenticacao/research.md",
+      ".spec/constituicao.md",
+      "onpspec.config.json"
+    ]
+  },
+  "decisions": [
+    {
+      "conflictId": "asm-007-api-aberta",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre o conflito com ASM-007, 2026-11-22",
+      "fingerprint": "4dc7b635efa256b5626c57a8e99f95268e3e17efeb92eec15f5047d9966ad059",
+      "ownFingerprint": "3a57f922464d7632278ed14032183ba70b8f6b1f9f36f7cdebb3979500a216fb",
+      "conflictFingerprint": "c1fe68ad09e34ae49f5ac6a5de052de9344668917a2f60494d6e7810ed1ab295",
+      "answeredAt": "2026-11-22T18:24:33.823Z"
+    },
+    {
+      "conflictId": "impacto:agendamento-consultas",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre alterar ConsultaController, AgendamentoService e ConsultaRepository (T-014), 2026-11-22",
+      "fingerprint": "4dc7b635efa256b5626c57a8e99f95268e3e17efeb92eec15f5047d9966ad059",
+      "ownFingerprint": "3a57f922464d7632278ed14032183ba70b8f6b1f9f36f7cdebb3979500a216fb",
+      "conflictFingerprint": "b134ec4a8b55e38fb9d06e287a90feb26f02c40bee9bbcda46c7996220abbb6e",
+      "answeredAt": "2026-11-22T18:24:34.178Z"
+    },
+    {
+      "conflictId": "q-003-cancelamento-so-recepcao",
+      "choice": "prosseguir",
+      "answer": "Perfis: Recepção e Paciente (Recomendado) - opção cuja descrição diz que o Paciente só vê e cancela as próprias consultas",
+      "source": "AskUserQuestion, pergunta 'Quais perfis de acesso o sistema terá?', 2026-11-22",
+      "fingerprint": "4dc7b635efa256b5626c57a8e99f95268e3e17efeb92eec15f5047d9966ad059",
+      "ownFingerprint": "3a57f922464d7632278ed14032183ba70b8f6b1f9f36f7cdebb3979500a216fb",
+      "conflictFingerprint": "fe637bd910a32365ecfc4ac98931967140b457fb3d493e38a887c3fb9d118201",
+      "answeredAt": "2026-11-22T18:24:34.529Z"
+    },
+    {
+      "conflictId": "asm-007-api-aberta",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre o conflito com ASM-007, 2026-11-22",
+      "fingerprint": "3af0d7274be72097c17115f2efa289bda8dc0c7b4f04923826c2358098ab505d",
+      "ownFingerprint": "b78ce5eb6d0d40dca2eb21c758efff54a04a36c6da764416d4f701bfac568a73",
+      "conflictFingerprint": "c1fe68ad09e34ae49f5ac6a5de052de9344668917a2f60494d6e7810ed1ab295",
+      "answeredAt": "2026-11-22T18:25:12.691Z"
+    },
+    {
+      "conflictId": "impacto:agendamento-consultas",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre alterar ConsultaController, AgendamentoService e ConsultaRepository (T-014), 2026-11-22",
+      "fingerprint": "3af0d7274be72097c17115f2efa289bda8dc0c7b4f04923826c2358098ab505d",
+      "ownFingerprint": "b78ce5eb6d0d40dca2eb21c758efff54a04a36c6da764416d4f701bfac568a73",
+      "conflictFingerprint": "b134ec4a8b55e38fb9d06e287a90feb26f02c40bee9bbcda46c7996220abbb6e",
+      "answeredAt": "2026-11-22T18:25:13.051Z"
+    },
+    {
+      "conflictId": "q-003-cancelamento-so-recepcao",
+      "choice": "prosseguir",
+      "answer": "Perfis: Recepção e Paciente (Recomendado) - opção cuja descrição diz que o Paciente só vê e cancela as próprias consultas",
+      "source": "AskUserQuestion, pergunta 'Quais perfis de acesso o sistema terá?', 2026-11-22",
+      "fingerprint": "3af0d7274be72097c17115f2efa289bda8dc0c7b4f04923826c2358098ab505d",
+      "ownFingerprint": "b78ce5eb6d0d40dca2eb21c758efff54a04a36c6da764416d4f701bfac568a73",
+      "conflictFingerprint": "fe637bd910a32365ecfc4ac98931967140b457fb3d493e38a887c3fb9d118201",
+      "answeredAt": "2026-11-22T18:25:13.390Z"
+    },
+    {
+      "conflictId": "asm-007-api-aberta",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre o conflito com ASM-007, 2026-11-22",
+      "fingerprint": "5d992b4988505569b1c8ade051cfa43b81a1ea5c6d023a9f68a5a6f73a3d939d",
+      "ownFingerprint": "475cb35e35b9cfbc3b31dc5682f96c1e0acbee0d4ed218d1b8802f22830f438b",
+      "conflictFingerprint": "c1fe68ad09e34ae49f5ac6a5de052de9344668917a2f60494d6e7810ed1ab295",
+      "answeredAt": "2026-11-22T18:33:38.462Z"
+    },
+    {
+      "conflictId": "impacto:agendamento-consultas",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre alterar ConsultaController, AgendamentoService e ConsultaRepository (T-014), 2026-11-22",
+      "fingerprint": "5d992b4988505569b1c8ade051cfa43b81a1ea5c6d023a9f68a5a6f73a3d939d",
+      "ownFingerprint": "475cb35e35b9cfbc3b31dc5682f96c1e0acbee0d4ed218d1b8802f22830f438b",
+      "conflictFingerprint": "afbbc0239e6bf7c45ce16fe94f26d8c30c06d26cea2bf621c6f80d92a068314b",
+      "answeredAt": "2026-11-22T18:33:38.816Z"
+    },
+    {
+      "conflictId": "q-003-cancelamento-so-recepcao",
+      "choice": "prosseguir",
+      "answer": "Perfis: Recepção e Paciente (Recomendado) - opção cuja descrição diz que o Paciente só vê e cancela as próprias consultas",
+      "source": "AskUserQuestion, pergunta 'Quais perfis de acesso o sistema terá?', 2026-11-22",
+      "fingerprint": "5d992b4988505569b1c8ade051cfa43b81a1ea5c6d023a9f68a5a6f73a3d939d",
+      "ownFingerprint": "475cb35e35b9cfbc3b31dc5682f96c1e0acbee0d4ed218d1b8802f22830f438b",
+      "conflictFingerprint": "fe637bd910a32365ecfc4ac98931967140b457fb3d493e38a887c3fb9d118201",
+      "answeredAt": "2026-11-22T18:33:39.147Z"
+    }
+  ]
+}
