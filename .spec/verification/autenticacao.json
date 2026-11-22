@@ -1,11 +1,11 @@
 {
   "feature": "autenticacao",
-  "timestamp": "2026-11-22T18:31:35.959Z",
-  "gitRev": "aceb5ca",
+  "timestamp": "2026-11-22T18:46:40.973Z",
+  "gitRev": "96375cf",
   "command": "node tools/run-gradle-tests.mjs",
   "reporter": "jest-json",
   "exitCode": 0,
-  "testsParsed": 62,
+  "testsParsed": 66,
   "results": {
     "AC-023": {
       "status": "pass",

@@ -1,0 +1,27 @@
+{
+  "feature": "documentacao-api",
+  "timestamp": "2026-11-22T18:45:49.058Z",
+  "gitRev": "96375cf",
+  "command": "node tools/run-gradle-tests.mjs",
+  "reporter": "jest-json",
+  "exitCode": 0,
+  "testsParsed": 66,
+  "results": {
+    "AC-040": {
+      "status": "pass",
+      "testName": "@spec:AC-040 A documentação lista os endereços e prevê o uso do token",
+      "method": "jest-json"
+    },
+    "AC-041": {
+      "status": "pass",
+      "testName": "@spec:AC-041 A página interativa abre sem login quando a documentação está aberta",
+      "method": "jest-json"
+    },
+    "AC-042": {
+      "status": "pass",
+      "testName": "@spec:AC-042 Por padrão a documentação exige login",
+      "method": "jest-json"
+    }
+  },
+  "principles": {}
+}

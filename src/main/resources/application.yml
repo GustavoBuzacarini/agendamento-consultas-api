@@ -30,6 +30,12 @@ seguranca:
     segredo: ${JWT_SECRET:}
     validade: 1h
 
+# Documentação da API (OpenAPI/Swagger UI). Fechada por padrão: exige token como o resto da API.
+# Com DOCUMENTACAO_ABERTA=true, só os endereços da documentação abrem sem token. Use apenas em
+# ambiente local; deixe desligada em qualquer ambiente exposto.
+documentacao:
+  aberta: ${DOCUMENTACAO_ABERTA:false}
+
 # Conta inicial da recepção: criada na primeira subida, só se ainda não existir conta de recepção.
 recepcao:
   inicial:

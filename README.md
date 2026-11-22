@@ -59,10 +59,20 @@ Todos os endereços exigem um token (`Authorization: Bearer <token>`), exceto `P
 
 3. **Carregue as variáveis e rode a aplicação** (no IntelliJ, coloque as mesmas variáveis na configuração de execução):
    ```powershell
-   Get-Content .env | Where-Object { $_ -match '^(DB_[A-Z]+|JWT_SECRET|RECEPCAO_[A-Z_]+)=(.*)$' } | ForEach-Object { Set-Item "env:$($Matches[1])" $Matches[2] }
+   Get-Content .env | Where-Object { $_ -match '^(DB_[A-Z]+|JWT_SECRET|DOCUMENTACAO_ABERTA|RECEPCAO_[A-Z_]+)=(.*)$' } | ForEach-Object { Set-Item "env:$($Matches[1])" $Matches[2] }
    .\gradlew.bat bootRun
    ```
    A API sobe em `http://localhost:8081` (mude com `SERVER_PORT`). Saúde: `http://localhost:8081/actuator/health`.
+
+## Documentação da API (Swagger UI)
+
+A documentação é gerada automaticamente (springdoc-openapi) e vem **fechada por padrão**: exige token como o resto da API. Para usar a página interativa no seu computador, ligue-a no `.env` e reinicie:
+
+```
+DOCUMENTACAO_ABERTA=true
+```
+
+Depois abra [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html). Para testar os endereços protegidos: faça `POST /auth/login` na própria página, copie o `token` da resposta, clique em **Authorize** e cole o token. O resumo em JSON fica em `/v3/api-docs`. Deixe a opção **desligada** em qualquer ambiente exposto.
 
 ## Endpoints
 
@@ -102,6 +112,7 @@ Prova dos critérios de aceite e auditoria da spec:
 ```powershell
 node .claude/skills/onp-spec-driven/scripts/onp-spec.mjs verify agendamento-consultas
 node .claude/skills/onp-spec-driven/scripts/onp-spec.mjs verify autenticacao
+node .claude/skills/onp-spec-driven/scripts/onp-spec.mjs verify documentacao-api
 node .claude/skills/onp-spec-driven/scripts/onp-spec.mjs audit --ci
 ```
 
@@ -118,9 +129,11 @@ src/main/java/br/com/agendamento/consultas/
   agenda/                           agenda do dia
   cep/                              Facade do ViaCEP
   seguranca/ conta/                 login, JWT, perfis e contas (fase 2)
+  documentacao/                     OpenAPI / Swagger UI
   erro/                             tratamento de erros (ProblemDetail)
 .spec/features/agendamento-consultas/   fase 1: PRD, ADR, TDD, pesquisa, spec e tarefas
 .spec/features/autenticacao/            fase 2 (login e permissões): mesma estrutura
+.spec/features/documentacao-api/        documentação OpenAPI/Swagger: mesma estrutura
 ```
 
 ## Próximas evoluções (fora de escopo hoje)

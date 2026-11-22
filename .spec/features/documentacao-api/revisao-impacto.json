@@ -1,0 +1,11 @@
+{
+  "summary": "Li a constituição (P-001, P-002) e os documentos das features autenticacao (PRD, ADR, TDD, spec) e agendamento-consultas. Conflito: a regra da autenticação (AC-025 e AC-027) deixa abertos só login e saúde; esta feature abre, por configuração (DOCUMENTACAO_ABERTA=true, padrão false), os endereços GET da documentação OpenAPI/Swagger, o que exige editar SegurancaConfig (arquivo da feature autenticacao). Nenhum comportamento de negócio ou de segurança já provado muda quando a flag está desligada (padrão), e com a flag ligada só os endereços de documentação abrem. P-002 é respeitada: a flag não é segredo e nada sensível entra no código.",
+  "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+  "conflicts": [
+    {
+      "id": "ac-025-ac-027-tudo-protegido",
+      "summary": "A autenticação protege tudo exceto login e saúde; a documentação aberta por configuração acrescenta exceções (GET /v3/api-docs e Swagger UI) e altera SegurancaConfig.",
+      "rule": ".spec/features/autenticacao/spec.md#ac-025"
+    }
+  ]
+}

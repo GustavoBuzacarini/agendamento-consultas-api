@@ -1,6 +1,7 @@
 package br.com.agendamento.consultas.seguranca;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +40,9 @@ public class SegurancaConfig {
 
     @Bean
     SecurityFilterChain filtroDeSeguranca(HttpSecurity http, JwtDecoder decodificador,
-                                          RespostasDeErroDeSeguranca respostas) throws Exception {
+                                          RespostasDeErroDeSeguranca respostas,
+                                          @Value("${documentacao.aberta:false}") boolean documentacaoAberta)
+            throws Exception {
         JwtAuthenticationConverter conversor = new JwtAuthenticationConverter();
         conversor.setJwtGrantedAuthoritiesConverter(jwt -> List.<GrantedAuthority>of(
                 new SimpleGrantedAuthority("ROLE_" + jwt.getClaimAsString("perfil"))));
@@ -47,7 +50,13 @@ public class SegurancaConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable) // sem cookie de sessão, o token vai no cabeçalho
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(a -> a
+                .authorizeHttpRequests(a -> {
+                    if (documentacaoAberta) {
+                        // só com DOCUMENTACAO_ABERTA=true: a documentação (somente leitura) abre sem token
+                        a.requestMatchers(HttpMethod.GET, "/v3/api-docs", "/v3/api-docs/**", "/swagger-ui.html",
+                                "/swagger-ui/**").permitAll();
+                    }
+                    a
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/actuator/health", "/actuator/health/**").permitAll()
                         .requestMatchers("/error").permitAll()
@@ -57,7 +66,8 @@ public class SegurancaConfig {
                         .hasAnyRole(Perfil.RECEPCAO.name(), Perfil.PACIENTE.name())
                         .requestMatchers(HttpMethod.PATCH, "/consultas/*/cancelar")
                         .hasAnyRole(Perfil.RECEPCAO.name(), Perfil.PACIENTE.name())
-                        .anyRequest().hasRole(Perfil.RECEPCAO.name()))
+                        .anyRequest().hasRole(Perfil.RECEPCAO.name());
+                })
                 .oauth2ResourceServer(o -> o
                         .jwt(j -> j.decoder(decodificador).jwtAuthenticationConverter(conversor))
                         .authenticationEntryPoint(respostas)

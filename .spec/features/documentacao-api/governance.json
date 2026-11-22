@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "large": true,
+  "documentationContract": "onp-docs-v1",
+  "domains": [],
+  "clientRequest": "Documentação da API (OpenAPI/Swagger) (resposta do cliente, 2026-11-22, à pergunta 'Quais melhorias opcionais você quer?'). Acesso: 'Fechada por padrão (Recomendado)'. Conflito com AC-025/AC-027 da feature autenticacao: 'Prosseguir (Recomendado)'.",
+  "review": {
+    "summary": "Li a constituição (P-001, P-002) e os documentos das features autenticacao (PRD, ADR, TDD, spec) e agendamento-consultas. Conflito: a regra da autenticação (AC-025 e AC-027) deixa abertos só login e saúde; esta feature abre, por configuração (DOCUMENTACAO_ABERTA=true, padrão false), os endereços GET da documentação OpenAPI/Swagger, o que exige editar SegurancaConfig (arquivo da feature autenticacao). Nenhum comportamento de negócio ou de segurança já provado muda quando a flag está desligada (padrão), e com a flag ligada só os endereços de documentação abrem. P-002 é respeitada: a flag não é segredo e nada sensível entra no código.",
+    "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+    "conflicts": [
+      {
+        "id": "impacto:agendamento-consultas",
+        "automatic": true,
+        "feature": "agendamento-consultas",
+        "summary": "A mudança interfere no domínio da feature agendamento-consultas.",
+        "files": [
+          "build.gradle",
+          "src/main/resources/application.yml"
+        ],
+        "domains": [],
+        "rule": ".spec/features/agendamento-consultas/prd.md"
+      },
+      {
+        "id": "impacto:autenticacao",
+        "automatic": true,
+        "feature": "autenticacao",
+        "summary": "A mudança interfere no domínio da feature autenticacao.",
+        "files": [
+          ".env.example",
+          "README.md",
+          "build.gradle",
+          "src/main/java/br/com/agendamento/consultas/seguranca/SegurancaConfig.java",
+          "src/main/resources/application.yml"
+        ],
+        "domains": [],
+        "rule": ".spec/features/autenticacao/prd.md"
+      },
+      {
+        "id": "ac-025-ac-027-tudo-protegido",
+        "summary": "A autenticação protege tudo exceto login e saúde; a documentação aberta por configuração acrescenta exceções (GET /v3/api-docs e Swagger UI) e altera SegurancaConfig.",
+        "rule": ".spec/features/autenticacao/spec.md#ac-025"
+      }
+    ],
+    "fingerprint": "8ddb0311d09d1fb790412770e5c9435f3b300ed468ff87deb84b7cf690f4c40e",
+    "ownFingerprint": "d31fb7c7dd3e6fa1b56b14edd7c4a4cfb2ce65b4fa31c79160b7b573d7deafa3",
+    "reviewedAt": "2026-11-22T18:47:27.397Z",
+    "documents": [
+      ".spec/features/agendamento-consultas/prd.md",
+      ".spec/features/agendamento-consultas/adr.md",
+      ".spec/features/agendamento-consultas/design.md",
+      ".spec/features/agendamento-consultas/spec.md",
+      ".spec/features/agendamento-consultas/tasks.md",
+      ".spec/features/agendamento-consultas/research.md",
+      ".spec/features/autenticacao/prd.md",
+      ".spec/features/autenticacao/adr.md",
+      ".spec/features/autenticacao/design.md",
+      ".spec/features/autenticacao/spec.md",
+      ".spec/features/autenticacao/tasks.md",
+      ".spec/features/autenticacao/research.md",
+      ".spec/features/documentacao-api/prd.md",
+      ".spec/features/documentacao-api/adr.md",
+      ".spec/features/documentacao-api/design.md",
+      ".spec/features/documentacao-api/spec.md",
+      ".spec/features/documentacao-api/tasks.md",
+      ".spec/features/documentacao-api/research.md",
+      ".spec/constituicao.md",
+      "onpspec.config.json"
+    ]
+  },
+  "decisions": [
+    {
+      "conflictId": "ac-025-ac-027-tudo-protegido",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre exceções a AC-025/AC-027 e alteração da SegurancaConfig, 2026-11-22",
+      "fingerprint": "427b72b7f9d9e340563eda57346f6ee8ad33a9dfdbcbf45a1ce8ab1a6c1dfaed",
+      "ownFingerprint": "f7fdb3e8a747efda02e1e2e20a6436b88ed5d821515c20f4ae8d62a0b9a0e968",
+      "conflictFingerprint": "d3b78675ca0b3ad8996baf7d2e9745aaece2cf1a710d4213b6995bb22b17d4c8",
+      "answeredAt": "2026-11-22T18:43:05.901Z"
+    },
+    {
+      "conflictId": "impacto:autenticacao",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre exceções a AC-025/AC-027 e alteração da SegurancaConfig, 2026-11-22",
+      "fingerprint": "427b72b7f9d9e340563eda57346f6ee8ad33a9dfdbcbf45a1ce8ab1a6c1dfaed",
+      "ownFingerprint": "f7fdb3e8a747efda02e1e2e20a6436b88ed5d821515c20f4ae8d62a0b9a0e968",
+      "conflictFingerprint": "7f5ab505e67ebdfe4cd3884f72c4f3c1a58a64592fe5dacb26928c38a133b42b",
+      "answeredAt": "2026-11-22T18:43:06.149Z"
+    },
+    {
+      "conflictId": "impacto:agendamento-consultas",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre arquivos comuns e leitura dos controllers de agendamento-consultas, 2026-11-22",
+      "fingerprint": "427b72b7f9d9e340563eda57346f6ee8ad33a9dfdbcbf45a1ce8ab1a6c1dfaed",
+      "ownFingerprint": "f7fdb3e8a747efda02e1e2e20a6436b88ed5d821515c20f4ae8d62a0b9a0e968",
+      "conflictFingerprint": "7b58b4a4ed65a65201caa32fa08c5e1f12a8305a48c1f06d33b4fa3ad8f098ed",
+      "answeredAt": "2026-11-22T18:43:06.393Z"
+    },
+    {
+      "conflictId": "ac-025-ac-027-tudo-protegido",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre exceções a AC-025/AC-027 e alteração da SegurancaConfig, 2026-11-22",
+      "fingerprint": "8ddb0311d09d1fb790412770e5c9435f3b300ed468ff87deb84b7cf690f4c40e",
+      "ownFingerprint": "d31fb7c7dd3e6fa1b56b14edd7c4a4cfb2ce65b4fa31c79160b7b573d7deafa3",
+      "conflictFingerprint": "d3b78675ca0b3ad8996baf7d2e9745aaece2cf1a710d4213b6995bb22b17d4c8",
+      "answeredAt": "2026-11-22T18:47:27.807Z"
+    },
+    {
+      "conflictId": "impacto:autenticacao",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre exceções a AC-025/AC-027 e alteração da SegurancaConfig, 2026-11-22",
+      "fingerprint": "8ddb0311d09d1fb790412770e5c9435f3b300ed468ff87deb84b7cf690f4c40e",
+      "ownFingerprint": "d31fb7c7dd3e6fa1b56b14edd7c4a4cfb2ce65b4fa31c79160b7b573d7deafa3",
+      "conflictFingerprint": "7f5ab505e67ebdfe4cd3884f72c4f3c1a58a64592fe5dacb26928c38a133b42b",
+      "answeredAt": "2026-11-22T18:47:28.170Z"
+    },
+    {
+      "conflictId": "impacto:agendamento-consultas",
+      "choice": "prosseguir",
+      "answer": "Prosseguir (Recomendado)",
+      "source": "AskUserQuestion, pergunta sobre arquivos comuns e leitura dos controllers de agendamento-consultas, 2026-11-22",
+      "fingerprint": "8ddb0311d09d1fb790412770e5c9435f3b300ed468ff87deb84b7cf690f4c40e",
+      "ownFingerprint": "d31fb7c7dd3e6fa1b56b14edd7c4a4cfb2ce65b4fa31c79160b7b573d7deafa3",
+      "conflictFingerprint": "7b58b4a4ed65a65201caa32fa08c5e1f12a8305a48c1f06d33b4fa3ad8f098ed",
+      "answeredAt": "2026-11-22T18:47:28.470Z"
+    }
+  ]
+}

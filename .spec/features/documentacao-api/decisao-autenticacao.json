@@ -1,0 +1,6 @@
+{
+  "conflictId": "impacto:autenticacao",
+  "choice": "prosseguir",
+  "answer": "Prosseguir (Recomendado)",
+  "source": "AskUserQuestion, pergunta sobre exceções a AC-025/AC-027 e alteração da SegurancaConfig, 2026-11-22"
+}
