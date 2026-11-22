@@ -1,0 +1,320 @@
+{
+  "schema": 1,
+  "sinais": {
+    "DOCUMENTO_RASCUNHO::agendamento-consultas::.spec\\features\\agendamento-consultas\\governance.json": {
+      "codigo": "DOCUMENTO_RASCUNHO",
+      "feature": "agendamento-consultas",
+      "ref": ".spec\\features\\agendamento-consultas\\governance.json",
+      "ocorrencias": 24,
+      "primeiraVez": "2026-11-22T02:28:19.695Z",
+      "ultimaVez": "2026-11-22T17:15:40.385Z",
+      "gitRev": null
+    },
+    "REVISAO_IMPACTO_PENDENTE::agendamento-consultas::.spec\\features\\agendamento-consultas\\governance.json": {
+      "codigo": "REVISAO_IMPACTO_PENDENTE",
+      "feature": "agendamento-consultas",
+      "ref": ".spec\\features\\agendamento-consultas\\governance.json",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T17:16:31.808Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-001": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-001",
+      "ocorrencias": 14,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T02:41:33.404Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-002": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-002",
+      "ocorrencias": 18,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T02:48:51.684Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-003": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-003",
+      "ocorrencias": 21,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-004": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-004",
+      "ocorrencias": 18,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-005": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-005",
+      "ocorrencias": 32,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T17:07:29.260Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-006": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-006",
+      "ocorrencias": 36,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T17:07:29.260Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-007": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-007",
+      "ocorrencias": 12,
+      "primeiraVez": "2026-11-22T02:28:19.696Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-008": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-008",
+      "ocorrencias": 37,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::agendamento-consultas::T-009": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "agendamento-consultas",
+      "ref": "T-009",
+      "ocorrencias": 15,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-001": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-001",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-002": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-002",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-003": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-003",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-004": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-004",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-005": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-005",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-006": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-006",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-007": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-007",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-008": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-008",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-009": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-009",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-010": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-010",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-011": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-011",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-012": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-012",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.685Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-013": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-013",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:48:51.686Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-014": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-014",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-015": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-015",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-016": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-016",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:07:29.261Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-017": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-017",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-018": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-018",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "GLOB_SEM_ARQUIVOS::—::P-002": {
+      "codigo": "GLOB_SEM_ARQUIVOS",
+      "feature": "—",
+      "ref": "P-002",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T02:28:19.697Z",
+      "ultimaVez": "2026-11-22T02:41:33.404Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::agendamento-consultas::AC-019": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "agendamento-consultas",
+      "ref": "AC-019",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-11-22T02:41:33.404Z",
+      "ultimaVez": "2026-11-22T17:11:15.894Z",
+      "gitRev": null
+    },
+    "Q_ABERTA::agendamento-consultas::Q-001": {
+      "codigo": "Q_ABERTA",
+      "feature": "agendamento-consultas",
+      "ref": "Q-001",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T17:16:31.809Z",
+      "ultimaVez": "2026-11-22T17:16:39.897Z",
+      "gitRev": null
+    },
+    "Q_ABERTA::agendamento-consultas::Q-003": {
+      "codigo": "Q_ABERTA",
+      "feature": "agendamento-consultas",
+      "ref": "Q-003",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T17:16:31.809Z",
+      "ultimaVez": "2026-11-22T17:16:39.898Z",
+      "gitRev": null
+    },
+    "Q_ABERTA::agendamento-consultas::Q-004": {
+      "codigo": "Q_ABERTA",
+      "feature": "agendamento-consultas",
+      "ref": "Q-004",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T17:16:31.809Z",
+      "ultimaVez": "2026-11-22T17:16:39.898Z",
+      "gitRev": null
+    },
+    "Q_ABERTA::agendamento-consultas::Q-005": {
+      "codigo": "Q_ABERTA",
+      "feature": "agendamento-consultas",
+      "ref": "Q-005",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-11-22T17:16:31.809Z",
+      "ultimaVez": "2026-11-22T17:16:39.898Z",
+      "gitRev": null
+    }
+  }
+}

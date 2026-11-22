@@ -1,0 +1,5 @@
+{
+  "summary": "Projeto novo: a constituição é o único contrato anterior; não há PRD, ADR ou spec de outros domínios. Em 2026-11-22 o cliente pediu aplicar a recomendação sobre os pontos de atenção, e o glob de verificação de P-002 foi ampliado de src/**/*.js para src/**/*.java (a regra de segredos fora do código continua igual e agora alcança o código do projeto). A escala de gravidade passou a 3 cores e foi propagada para spec, tarefas, TDD, ADR, PRD e pesquisa; AC-019 e ASM-009 foram acrescentados.",
+  "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+  "conflicts": []
+}

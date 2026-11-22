@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "large": true,
+  "documentationContract": "onp-docs-v1",
+  "domains": [],
+  "clientRequest": "bom, vou querer o #4 (Agendamento de Consultas em UBS / Clínica) ... banco pode usar o PostgreSQL e o Grandle [Gradle]. Contexto: projeto Java/Spring Boot do curso DIO de padrões de projeto; ideia com impacto real e escopo não muito complexo.",
+  "review": {
+    "summary": "Projeto novo: a constituição é o único contrato anterior; não há PRD, ADR ou spec de outros domínios. Em 2026-11-22 o cliente pediu aplicar a recomendação sobre os pontos de atenção, e o glob de verificação de P-002 foi ampliado de src/**/*.js para src/**/*.java (a regra de segredos fora do código continua igual e agora alcança o código do projeto). A escala de gravidade passou a 3 cores e foi propagada para spec, tarefas, TDD, ADR, PRD e pesquisa; AC-019 e ASM-009 foram acrescentados.",
+    "reviewer": "Claude Code (sessão do agendamento-consultas, 2026-11-22)",
+    "conflicts": [],
+    "fingerprint": "2a909e47dc59ca442976f7635aedea1a1a2f2720836ff4cf47c157305d72a46c",
+    "ownFingerprint": "2a909e47dc59ca442976f7635aedea1a1a2f2720836ff4cf47c157305d72a46c",
+    "reviewedAt": "2026-11-22T17:21:44.095Z",
+    "documents": [
+      ".spec/features/agendamento-consultas/prd.md",
+      ".spec/features/agendamento-consultas/adr.md",
+      ".spec/features/agendamento-consultas/design.md",
+      ".spec/features/agendamento-consultas/spec.md",
+      ".spec/features/agendamento-consultas/tasks.md",
+      ".spec/features/agendamento-consultas/research.md",
+      ".spec/constituicao.md",
+      "onpspec.config.json"
+    ]
+  },
+  "decisions": []
+}

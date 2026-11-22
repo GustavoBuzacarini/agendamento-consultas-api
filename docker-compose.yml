@@ -1,0 +1,17 @@
+# PostgreSQL local para desenvolvimento. Requer Docker.
+# Copie .env.example para .env e defina a senha (o .env não é versionado).
+services:
+  postgres:
+    image: postgres:17
+    container_name: agendamento-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-agendamento}
+      POSTGRES_USER: ${POSTGRES_USER:-agendamento}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no arquivo .env}
+    ports:
+      - "5432:5432"
+    volumes:
+      - agendamento-pgdata:/var/lib/postgresql/data
+
+volumes:
+  agendamento-pgdata:

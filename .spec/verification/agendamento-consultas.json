@@ -1,0 +1,122 @@
+{
+  "feature": "agendamento-consultas",
+  "timestamp": "2026-11-22T17:21:08.186Z",
+  "gitRev": null,
+  "command": "node tools/run-gradle-tests.mjs",
+  "reporter": "jest-json",
+  "exitCode": 0,
+  "testsParsed": 39,
+  "results": {
+    "AC-001": {
+      "status": "pass",
+      "testName": "@spec:AC-001 Paciente é cadastrado e o CPF não se repete",
+      "method": "jest-json"
+    },
+    "AC-002": {
+      "status": "pass",
+      "testName": "@spec:AC-002 Profissional é cadastrado com seu expediente semanal",
+      "method": "jest-json"
+    },
+    "AC-003": {
+      "status": "pass",
+      "testName": "@spec:AC-003 Motivo de atendimento é cadastrado com sua cor de gravidade",
+      "method": "jest-json"
+    },
+    "AC-004": {
+      "status": "pass",
+      "testName": "@spec:AC-004 Agendamento válido cria uma consulta Agendada",
+      "method": "jest-json"
+    },
+    "AC-005": {
+      "status": "pass",
+      "testName": "@spec:AC-005 Horário já ocupado do médico é recusado",
+      "method": "jest-json"
+    },
+    "AC-006": {
+      "status": "pass",
+      "testName": "@spec:AC-006 Horário fora do expediente é recusado",
+      "method": "jest-json"
+    },
+    "AC-007": {
+      "status": "pass",
+      "testName": "@spec:AC-007 Agendamento sem a antecedência mínima é recusado",
+      "method": "jest-json"
+    },
+    "AC-008": {
+      "status": "pass",
+      "testName": "@spec:AC-008 Paciente acima do limite de consultas futuras é recusado",
+      "method": "jest-json"
+    },
+    "AC-009": {
+      "status": "pass",
+      "testName": "@spec:AC-009 Motivo inexistente é recusado",
+      "method": "jest-json"
+    },
+    "AC-010": {
+      "status": "pass",
+      "testName": "@spec:AC-010 Consulta agendada pode ser confirmada",
+      "method": "jest-json"
+    },
+    "AC-011": {
+      "status": "pass",
+      "testName": "@spec:AC-011 Cancelar uma consulta libera o horário",
+      "method": "jest-json"
+    },
+    "AC-012": {
+      "status": "pass",
+      "testName": "@spec:AC-012 Consulta já realizada não pode ser cancelada",
+      "method": "jest-json"
+    },
+    "AC-013": {
+      "status": "pass",
+      "testName": "@spec:AC-013 Só consulta confirmada pode virar Realizada ou Faltou",
+      "method": "jest-json"
+    },
+    "AC-014": {
+      "status": "pass",
+      "testName": "@spec:AC-014 Idoso (60 anos ou mais) recebe prioridade",
+      "method": "jest-json"
+    },
+    "AC-015": {
+      "status": "pass",
+      "testName": "@spec:AC-015 Gestante recebe prioridade",
+      "method": "jest-json"
+    },
+    "AC-016": {
+      "status": "pass",
+      "testName": "@spec:AC-016 Pessoa com deficiência recebe prioridade",
+      "method": "jest-json"
+    },
+    "AC-017": {
+      "status": "pass",
+      "testName": "@spec:AC-017 Caso vermelho (grave) é urgente e dispensa antecedência e limite",
+      "method": "jest-json"
+    },
+    "AC-018": {
+      "status": "pass",
+      "testName": "@spec:AC-018 A agenda do dia vem ordenada por prioridade",
+      "method": "jest-json"
+    },
+    "AC-019": {
+      "status": "pass",
+      "testName": "@spec:AC-019 Caso amarelo (intermediário) é prioritário, mas segue as regras normais",
+      "method": "jest-json"
+    },
+    "AC-020": {
+      "status": "pass",
+      "testName": "@spec:AC-020 CEP válido preenche o endereço do paciente",
+      "method": "jest-json"
+    },
+    "AC-021": {
+      "status": "pass",
+      "testName": "@spec:AC-021 CEP inexistente ou mal formatado é recusado",
+      "method": "jest-json"
+    },
+    "AC-022": {
+      "status": "pass",
+      "testName": "@spec:AC-022 Serviço de CEP fora do ar recusa o cadastro com aviso claro",
+      "method": "jest-json"
+    }
+  },
+  "principles": {}
+}
